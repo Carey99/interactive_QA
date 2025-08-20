@@ -7,7 +7,7 @@
 - [x] Implement Q&A interface
 
 ## Backend
-- [ ] Set up FastAPI
-- [ ] Create API endpoints
-- [ ] Integrate LLM service
-- [ ] Add error handling
+- [x] Set up FastAPI
+- [x] Create API endpoints
+- [x] Integrate LLM service
+- [x] Add error handling
