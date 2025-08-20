@@ -2,9 +2,9 @@
 
 ## Frontend
 - [x] Set up Next.js project
-- [ ] Create basic layout
-- [ ] Add styling with Tailwind CSS
-- [ ] Implement Q&A interface
+- [x] Create basic layout
+- [x] Add styling with Tailwind CSS
+- [x] Implement Q&A interface
 
 ## Backend
 - [ ] Set up FastAPI
