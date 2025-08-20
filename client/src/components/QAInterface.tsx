@@ -29,13 +29,22 @@ export default function QAInterface() {
   /**
    * Health Check Effect
    * Runs once when component mounts to check if the backend API is available
+   * Also sets up periodic health checks every 30 seconds
    */
   useEffect(() => {
     const checkHealth = async () => {
       const health = await QAService.getHealth();
       setIsOnline(health);
     };
+    
+    // Initial health check
     checkHealth();
+    
+    // Set up periodic health checks every 30 seconds
+    const healthInterval = setInterval(checkHealth, 30000);
+    
+    // Cleanup interval on component unmount
+    return () => clearInterval(healthInterval);
   }, []);
 
   /**
@@ -70,6 +79,11 @@ export default function QAInterface() {
       // Send question to backend AI service
       const response = await QAService.askQuestion(currentInput);
       
+      // If we got a response with confidence > 0, backend is working
+      if (response.confidence > 0) {
+        setIsOnline(true);
+      }
+      
       // Create AI response message
       const botMessage: Message = {
         id: (Date.now() + 1).toString(), // Ensure unique ID
@@ -81,6 +95,9 @@ export default function QAInterface() {
       // Add AI response to chat
       setMessages(prev => [...prev, botMessage]);
     } catch (error) {
+      // If we get an error, mark as offline
+      setIsOnline(false);
+      
       // Handle any errors that occur during question processing
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
@@ -229,7 +246,7 @@ export default function QAInterface() {
         
         {/* Matrix-style status line */}
         <div className="mt-2 text-xs text-green-600 font-mono opacity-70">
-          {'> NEURAL_LINK_STATUS: ACTIVE | READY_FOR_INPUT'}
+          {'> READY_FOR_INPUT'}
         </div>
       </div>
     </div>

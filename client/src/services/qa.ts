@@ -14,7 +14,7 @@
 import { QAResponse } from '@/types/qa';
 
 // Get API URL from environment variables, fallback to localhost for development
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8001';
 
 export class QAService {
   /**
@@ -62,8 +62,15 @@ export class QAService {
   static async getHealth(): Promise<boolean> {
     try {
       // Send a simple GET request to the health endpoint
-      const response = await fetch(`${API_BASE_URL}/api/health`);
-      return response.ok;
+      const response = await fetch(`${API_BASE_URL}/health`);
+      
+      if (response.ok) {
+        const data = await response.json();
+        // Check if the LLM service is connected
+        return data.status === 'healthy' && data.llm_service_status === 'connected';
+      }
+      
+      return false;
     } catch (error) {
       console.error('Health check failed:', error);
       return false;
