@@ -1,7 +1,7 @@
 # TODO List
 
 ## Frontend
-- [ ] Set up Next.js project
+- [x] Set up Next.js project
 - [ ] Create basic layout
 - [ ] Add styling with Tailwind CSS
 - [ ] Implement Q&A interface
