@@ -1,0 +1,28 @@
+# Interactive Q&A System Requirements
+
+## Backend (Python) Dependencies
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic==2.5.0
+pydantic-settings==2.1.0
+python-dotenv==1.0.0
+groq==0.4.1
+python-multipart==0.0.6
+httpx==0.25.2
+requests==2.31.0
+
+# Development tools
+pytest==7.4.3
+pytest-asyncio==0.21.1
+
+## Frontend (Node.js) Dependencies
+# See client/package.json for detailed frontend dependencies
+# - Next.js 15 with Turbopack
+# - TypeScript
+# - Tailwind CSS
+# - Lucide React (icons)
+
+## System Requirements
+# Python 3.12+
+# Node.js 18+
+# npm or yarn
