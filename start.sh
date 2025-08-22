@@ -56,7 +56,7 @@ cd server
 
 # Activate virtual environment and start backend
 source ../.venv/bin/activate
-python -m uvicorn main:app --host 0.0.0.0 --port 8001 > ../backend.log 2>&1 &
+python3 -m uvicorn main:app --host 0.0.0.0 --port 8001 > ../backend.log 2>&1 &
 BACKEND_PID=$!
 
 # Wait a moment for backend to start

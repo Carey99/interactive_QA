@@ -132,7 +132,8 @@ async def health_check():
             status="healthy",
             message="All systems operational",
             llm_service_status=llm_health["status"],
-            version="1.0.0"
+            version="1.0.0",
+            timestamp=datetime.now()
         )
     except Exception as e:
         logger.error(f"Health check failed: {str(e)}")
@@ -140,7 +141,8 @@ async def health_check():
             status="degraded",
             message=f"LLM service issue: {str(e)}",
             llm_service_status="disconnected",
-            version="1.0.0"
+            version="1.0.0",
+            timestamp=datetime.now()
         )
 
 

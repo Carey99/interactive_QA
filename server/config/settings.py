@@ -30,8 +30,8 @@ class Settings(BaseSettings):
     
     # Server Configuration
     HOST: str = "0.0.0.0"
-    PORT: int = 10000  # Render's default port
-    DEBUG: bool = False  # Production mode for Render
+    PORT: int = 8001  # Local development port
+    DEBUG: bool = True  # Development mode
     
     # CORS Configuration - Updated for Render deployment
     ALLOWED_ORIGINS: str = "http://localhost:3000,http://127.0.0.1:3000,https://your-app-name.onrender.com"

@@ -66,6 +66,7 @@ export class QAService {
       
       if (response.ok) {
         const data = await response.json();
+        console.log('Health response:', data); // Debug log
         // Check if the LLM service is connected
         return data.status === 'healthy' && data.llm_service_status === 'connected';
       }
