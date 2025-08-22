@@ -1,8 +1,8 @@
 """
-Vercel Handler - Minimal Version
+Ultra-minimal Vercel handler
 """
 
-from minimal_app import app
+from ultra_minimal import app
 
 # Export for Vercel
 handler = app
