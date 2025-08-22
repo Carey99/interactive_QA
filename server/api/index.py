@@ -114,6 +114,22 @@ class handler(BaseHTTPRequestHandler):
                 "version": "1.0.0",
                 "timestamp": datetime.now().isoformat()
             }
+        elif self.path == '/test-api-key':
+            # Test endpoint to check API key configuration
+            api_key = os.getenv('GROQ_API_KEY')
+            response = {
+                "api_key_configured": bool(api_key),
+                "api_key_length": len(api_key) if api_key else 0,
+                "api_key_prefix": api_key[:8] + "..." if api_key and len(api_key) > 8 else "not_set",
+                "requests_available": True,
+                "timestamp": datetime.now().isoformat()
+            }
+            # Test if we can import requests
+            try:
+                import requests
+                response["requests_available"] = True
+            except ImportError:
+                response["requests_available"] = False
         else:
             response = {
                 "message": "Welcome to Startup Business Guide API",
