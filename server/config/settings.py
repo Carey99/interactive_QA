@@ -34,7 +34,7 @@ class Settings(BaseSettings):
     DEBUG: bool = False  # Production mode for Vercel
     
     # CORS Configuration - Updated for split deployment
-    ALLOWED_ORIGINS: str = "http://localhost:3000,http://127.0.0.1:3000,https://interactive-qa.vercel.app/"
+    ALLOWED_ORIGINS: str = "http://localhost:3000,http://127.0.0.1:3000,https://interactive-qa-ai.vercel.app/"
     
     @property
     def allowed_origins(self) -> List[str]:
