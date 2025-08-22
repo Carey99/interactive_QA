@@ -34,7 +34,7 @@ class Settings(BaseSettings):
     DEBUG: bool = True  # Development mode
     
     # CORS Configuration - Updated for split deployment
-    ALLOWED_ORIGINS: str = "http://localhost:3000,http://127.0.0.1:3000,https://your-frontend.vercel.app,https://*.vercel.app"
+    ALLOWED_ORIGINS: str = "http://localhost:3000,http://127.0.0.1:3000,https://interactive-qa.vercel.app/"
     
     @property
     def allowed_origins(self) -> List[str]:
