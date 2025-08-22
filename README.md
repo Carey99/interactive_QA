@@ -111,6 +111,19 @@ GROQ_API_KEY=your_actual_groq_api_key_here
 - **API Documentation**: http://localhost:8001/docs (Swagger UI)
 - **API Health**: http://localhost:8001/health
 
+## 🌐 Deployment to Render
+
+For production deployment, see the comprehensive [Render Deployment Guide](RENDER_DEPLOYMENT.md).
+
+**Quick Deploy Steps:**
+1. Push your code to GitHub
+2. Create a new Web Service on Render
+3. Connect your GitHub repository
+4. Set your `GROQ_API_KEY` environment variable
+5. Deploy!
+
+Your app will be live at: `https://your-app-name.onrender.com`
+
 ## 🎯 Usage Examples
 
 Ask startup business questions like:
