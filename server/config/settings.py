@@ -33,8 +33,8 @@ class Settings(BaseSettings):
     PORT: int = 8001  # Local development port
     DEBUG: bool = True  # Development mode
     
-    # CORS Configuration - Updated for Render deployment
-    ALLOWED_ORIGINS: str = "http://localhost:3000,http://127.0.0.1:3000,https://your-app-name.onrender.com"
+    # CORS Configuration - Updated for split deployment
+    ALLOWED_ORIGINS: str = "http://localhost:3000,http://127.0.0.1:3000,https://your-frontend.vercel.app,https://*.vercel.app"
     
     @property
     def allowed_origins(self) -> List[str]:
