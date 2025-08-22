@@ -18,6 +18,8 @@ class Settings(BaseSettings):
     via environment variables or .env file
     """
     
+    model_config = {"extra": "allow"}  # Allow extra fields from .env
+    
     # Groq API Configuration
     GROQ_API_KEY: str = ""
     
@@ -28,11 +30,11 @@ class Settings(BaseSettings):
     
     # Server Configuration
     HOST: str = "0.0.0.0"
-    PORT: int = 3001
-    DEBUG: bool = True
+    PORT: int = 10000  # Render's default port
+    DEBUG: bool = False  # Production mode for Render
     
-    # CORS Configuration
-    ALLOWED_ORIGINS: str = "http://localhost:3000,http://127.0.0.1:3000,http://localhost:3001,http://127.0.0.1:3001"
+    # CORS Configuration - Updated for Render deployment
+    ALLOWED_ORIGINS: str = "http://localhost:3000,http://127.0.0.1:3000,https://your-app-name.onrender.com"
     
     @property
     def allowed_origins(self) -> List[str]:
