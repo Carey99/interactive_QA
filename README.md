@@ -2,6 +2,12 @@
 
 A modern, AI-powered startup business guidance system with Matrix-themed UI and free LLM integration.
 
+## 🌐 Live Demo
+
+**🚀 Try the app now:** [https://interactive-qa-ai.vercel.app/](https://interactive-qa-ai.vercel.app/)
+
+Experience the Matrix-themed AI startup advisor in action! Ask questions about business registration, legal requirements, international travel documentation, and startup guidance.
+
 ## 🚀 Project Overview
 
 A complete full-stack application that provides intelligent answers to startup business questions using Groq's free LLM API. The system features a beautiful Matrix-inspired chat interface and comprehensive business guidance.
@@ -111,18 +117,32 @@ GROQ_API_KEY=your_actual_groq_api_key_here
 - **API Documentation**: http://localhost:8001/docs (Swagger UI)
 - **API Health**: http://localhost:8001/health
 
-## 🌐 Deployment to Render
+## 🌐 Live Deployment
 
-For production deployment, see the comprehensive [Render Deployment Guide](RENDER_DEPLOYMENT.md).
+**🚀 Production App:** [https://interactive-qa-ai.vercel.app/](https://interactive-qa-ai.vercel.app/)
 
-**Quick Deploy Steps:**
-1. Push your code to GitHub
-2. Create a new Web Service on Render
-3. Connect your GitHub repository
-4. Set your `GROQ_API_KEY` environment variable
-5. Deploy!
+This application is deployed on Vercel with:
+- **Frontend**: Vercel (Next.js deployment)
+- **Backend**: Vercel Serverless Functions (Python API)
+- **AI Integration**: Groq API for free LLM responses
 
-Your app will be live at: `https://your-app-name.onrender.com`
+### Deploy Your Own Version
+
+1. **Fork this repository** on GitHub
+2. **Deploy Frontend to Vercel:**
+   - Connect your GitHub repo to Vercel
+   - Deploy the `client` folder
+   - Set build command: `npm run build`
+   
+3. **Deploy Backend to Vercel:**
+   - Create a new Vercel project for the `server` folder
+   - Set environment variable: `GROQ_API_KEY`
+   - Vercel will automatically handle the Python serverless deployment
+
+4. **Update Frontend Environment:**
+   - Set `NEXT_PUBLIC_API_URL` to your backend Vercel URL
+
+Your app will be live at: `https://your-app-name.vercel.app`
 
 ## 🎯 Usage Examples
 
