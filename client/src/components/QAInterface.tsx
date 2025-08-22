@@ -15,7 +15,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Send, Bot, User, Loader2, AlertCircle, Wifi, WifiOff } from 'lucide-react';
+import { Send, Bot, User, Loader2, Wifi, WifiOff } from 'lucide-react';
 import { Message } from '@/types/qa';
 import { QAService } from '@/services/qa';
 
@@ -80,7 +80,7 @@ export default function QAInterface() {
       const response = await QAService.askQuestion(currentInput);
       
       // If we got a response with confidence > 0, backend is working
-      if (response.confidence > 0) {
+      if (response.confidence && response.confidence > 0) {
         setIsOnline(true);
       }
       
@@ -94,7 +94,7 @@ export default function QAInterface() {
       
       // Add AI response to chat
       setMessages(prev => [...prev, botMessage]);
-    } catch (error) {
+    } catch {
       // If we get an error, mark as offline
       setIsOnline(false);
       
